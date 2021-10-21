@@ -1,0 +1,47 @@
+<!-- Toolbar -->
+<!-- <mat-toolbar color="primary" class="app-header">
+  <div> <a href="/home" routerLink="home">Home</a></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="signin" routerLinkActive="active">Sign in</a>
+    <a mat-button mat-raised-button routerLink="signup" routerLinkActive="active">Sign up</a>
+  </span>
+</mat-toolbar> -->
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Book for fly</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin </a>
+      </li>
+     
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/signup" class="nav-link" routerLink="signup">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/signin" class="nav-link" routerLink="signin">Sign In</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
